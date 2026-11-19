@@ -1,4 +1,4 @@
-from pathlib import Path
+from pathlib import Path 
 import requests
 
 # TODO: Coloque aqui a URL exata da API pública que você consultou

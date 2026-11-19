@@ -23,6 +23,8 @@
    cd pbf-2026
 
 ## 5. Capturas de Tela e Contexto do Dashboard
+O projeto pode ser acessado em: https://lukaslmatos.github.io/pbf-2026/
+
 <img width="920" height="163" alt="1" src="https://github.com/user-attachments/assets/ca9bf771-1770-4a88-885b-6ec4ad1c38fb" />
 Indicadores pricipais
 

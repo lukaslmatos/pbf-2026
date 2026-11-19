@@ -23,3 +23,12 @@
    cd pbf-2026
 
 ## 5. Capturas de Tela e Contexto do Dashboard
+<img width="920" height="163" alt="1" src="https://github.com/user-attachments/assets/ca9bf771-1770-4a88-885b-6ec4ad1c38fb" />
+Indicadores pricipais
+
+<img width="926" height="374" alt="2" src="https://github.com/user-attachments/assets/9cef45e1-5a48-469f-87f8-f86ae4aa6b19" />
+Repasses por região / Repasses por estado
+
+<img width="926" height="383" alt="3" src="https://github.com/user-attachments/assets/36d4b4d3-2f32-4e92-baea-f8f13d682d46" />
+
+

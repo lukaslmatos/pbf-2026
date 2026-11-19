@@ -2,7 +2,7 @@ from pathlib import Path
 import requests
 
 # TODO: Coloque aqui a URL exata da API pública que você consultou
-URL_API = "https://api.portaldatransparencia.gov.br/api-de-dados/bolsa-familia-por-municipio"
+URL_API = "https://dados.gov.br/dados/conjuntos-dados/bolsa-familia---beneficios-basicos-e-variaveis"
 
 CAMINHO_RAW = Path("data/raw/bolsa_familia_api.csv")
 

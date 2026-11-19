@@ -179,7 +179,7 @@
       color: var(--text-secondary);
     }
 
-    .badge-consolidated {
+    .badge-status {
       display: inline-block;
       margin-top: 4px;
       background-color: var(--badge-bg);
@@ -303,41 +303,41 @@
     <section class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-label">TOTAL ACUMULADO (2004–2026)</div>
-        <div id="kpiAcumulado" class="kpi-value">R$ 1,06 Tri</div>
+        <div id="kpiAcumulado" class="kpi-value">R$ 1,02 Tri</div>
         <div id="kpiAcumuladoSub" class="kpi-sub">Recorte: Brasil (Todas as UFs)</div>
       </div>
 
       <div class="kpi-card">
-        <div class="kpi-label" id="kpiAnoAtualLabel">TOTAL EM 2025</div>
-        <div id="kpiAnoAtual" class="kpi-value">R$ 159,54 Bi</div>
-        <div id="kpiAnoAtualSub" class="kpi-sub">12 meses contabilizados</div>
-        <span id="kpiStatusBadge" class="badge-consolidated">Consolidado</span>
+        <div class="kpi-label" id="kpiAnoAtualLabel">TOTAL EM 2026</div>
+        <div id="kpiAnoAtual" class="kpi-value">R$ 146,78 Bi</div>
+        <div id="kpiAnoAtualSub" class="kpi-sub">Série até o período disponível</div>
+        <span id="kpiStatusBadge" class="badge-status">Parcial (em andamento)</span>
       </div>
 
       <div class="kpi-card">
-        <div class="kpi-label" id="kpiAnoAnteriorLabel">ACUMULADO ANO ANTERIOR (2024)</div>
-        <div id="kpiAnoAnterior" class="kpi-value">R$ 170,40 Bi</div>
-        <div id="kpiVariacao" class="kpi-sub">Variação (ano completo): -6,4%</div>
+        <div class="kpi-label" id="kpiAnoAnteriorLabel">ACUMULADO ANO ANTERIOR (2025)</div>
+        <div id="kpiAnoAnterior" class="kpi-value">R$ 159,54 Bi</div>
+        <div id="kpiVariacao" class="kpi-sub">Variação (2025 → 2026): -8,0%</div>
       </div>
 
       <div class="kpi-card">
         <div class="kpi-label">MÉDIA DE FAMÍLIAS ATENDIDAS</div>
-        <div id="kpiFamilias" class="kpi-value">19,77 Mi</div>
-        <div id="kpiFamiliasSub" class="kpi-sub">Média mensal em 2025 · Brasil</div>
+        <div id="kpiFamilias" class="kpi-value">19,12 Mi</div>
+        <div id="kpiFamiliasSub" class="kpi-sub">Média mensal em 2026 · Brasil (Todas as UFs)</div>
       </div>
 
       <div class="kpi-card">
         <div class="kpi-label">VALOR MÉDIO DO BENEFÍCIO</div>
-        <div id="kpiBeneficio" class="kpi-value">R$ 672,63</div>
-        <div id="kpiBeneficioSub" class="kpi-sub">Por família/mês em 2025 · Brasil</div>
+        <div id="kpiBeneficio" class="kpi-value">R$ 678,90</div>
+        <div id="kpiBeneficioSub" class="kpi-sub">Por família/mês em 2026 · Brasil (Todas as UFs)</div>
       </div>
     </section>
 
     <!-- Linha 1 de Gráficos -->
     <section class="charts-grid">
       <div class="card">
-        <div class="chart-title" id="tituloMensal">Evolução Mês a Mês (2025)</div>
-        <div class="chart-subtitle" id="subtituloMensal">Repasses mensais · Rótulos limpos com detalhes ao passar o mouse</div>
+        <div class="chart-title" id="tituloMensal">Evolução Mês a Mês (2026)</div>
+        <div class="chart-subtitle" id="subtituloMensal">Repasses mensais · Brasil</div>
         <div id="graficoMensal" class="chart-box"></div>
       </div>
 
@@ -358,13 +358,13 @@
     <!-- Linha 2 de Gráficos -->
     <section class="charts-grid">
       <div class="card">
-        <div class="chart-title" id="tituloRegiao">Repasses por Região (2025)</div>
+        <div class="chart-title" id="tituloRegiao">Repasses por Região (2026)</div>
         <div class="chart-subtitle">Ranking regional · Clique em uma região para filtrar</div>
         <div id="graficoRegiao" class="chart-box"></div>
       </div>
 
       <div class="card">
-        <div class="chart-title" id="tituloUF">Repasses por Estado / UF (2025)</div>
+        <div class="chart-title" id="tituloUF">Repasses por Estado / UF (2026)</div>
         <div class="chart-subtitle">27 UFs · Passe o mouse nas barras para ver o valor ou clique para filtrar</div>
         <div id="graficoUF" class="chart-box"></div>
       </div>
@@ -400,19 +400,10 @@
       { ano: 2023, valor: 143.14, tipo: "oficial", familiasMi: 21.35, beneficio: 681.20 },
       { ano: 2024, valor: 170.40, tipo: "oficial", familiasMi: 20.78, beneficio: 682.15 },
       { ano: 2025, valor: 159.54, tipo: "oficial", familiasMi: 19.77, beneficio: 672.63 },
-      { ano: 2026, valor: 146.78, tipo: "oficial", familiasMi: 19.12, beneficio: 678.90 }
+      { ano: 2026, valor: 146.78, tipo: "parcial", familiasMi: 19.12, beneficio: 678.90 }
     ];
 
-    // Pesos regionais de referência para recortes
-    const PESOS_REGIAO = {
-      "Nordeste": 0.461,
-      "Sudeste": 0.281,
-      "Norte": 0.136,
-      "Sul": 0.069,
-      "Centro-Oeste": 0.054
-    };
-
-    // 27 UFs com região e peso relativo para simulação proporcional quando filtrado
+    // 27 UFs completas (incluindo SE - Sergipe) com soma de pesos = 1.0000
     const ESTADOS_BASE = [
       { uf: "BA", regiao: "Nordeste", peso: 0.1199 },
       { uf: "SP", regiao: "Sudeste", peso: 0.1164 },
@@ -431,6 +422,7 @@
       { uf: "RN", regiao: "Nordeste", peso: 0.0228 },
       { uf: "GO", regiao: "Centro-Oeste", peso: 0.0222 },
       { uf: "ES", regiao: "Sudeste", peso: 0.0184 },
+      { uf: "SE", regiao: "Nordeste", peso: 0.0151 },
       { uf: "MT", regiao: "Centro-Oeste", peso: 0.0120 },
       { uf: "SC", regiao: "Sul", peso: 0.0108 },
       { uf: "MS", regiao: "Centro-Oeste", peso: 0.0098 },
@@ -442,11 +434,17 @@
       { uf: "RR", regiao: "Norte", peso: 0.0043 }
     ];
 
+    // Pesos regionais derivados exatamente da soma das 27 UFs por região (total = 1.0000)
+    const PESOS_REGIAO = ESTADOS_BASE.reduce((acc, item) => {
+      acc[item.regiao] = Number(((acc[item.regiao] || 0) + item.peso).toFixed(4));
+      return acc;
+    }, {});
+
     const MESES = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
     const FATORES_MENSAIS = [1.03, 1.03, 1.03, 1.03, 1.03, 1.03, 1.01, 1.00, 0.985, 0.978, 0.955, 0.955];
 
     const state = {
-      ano: 2025,
+      ano: 2026,
       regiao: "Todas",
       uf: "Todas"
     };
@@ -516,13 +514,17 @@
       document.getElementById("kpiAnoAtualLabel").textContent = `TOTAL EM ${atual.ano}`;
       document.getElementById("kpiAnoAtual").textContent = formatAbreviadoBi(valorAtualBi);
       document.getElementById("kpiAnoAtualSub").textContent =
-        atual.ano === 2026 ? "Série até o período disponível" : "12 meses contabilizados";
+        atual.tipo === "parcial" ? "Série até o período disponível" : "12 meses contabilizados";
 
       const badge = document.getElementById("kpiStatusBadge");
       if (atual.tipo === "interpolado") {
         badge.textContent = "Interpolado (*)";
         badge.style.backgroundColor = "#fef3c7";
         badge.style.color = "#92400e";
+      } else if (atual.tipo === "parcial") {
+        badge.textContent = "Parcial (em andamento)";
+        badge.style.backgroundColor = "#dbeafe";
+        badge.style.color = "#1e40af";
       } else {
         badge.textContent = "Consolidado";
         badge.style.backgroundColor = "#dcfce7";
@@ -577,7 +579,6 @@
       document.getElementById("subtituloMensal").textContent =
         `Repasses mensais · ${state.uf !== "Todas" ? state.uf : state.regiao !== "Todas" ? state.regiao : "Brasil"}`;
 
-      // Sem "+text" para evitar sobreposição; detalhes completos ficam no hovertemplate
       const trace = {
         x: MESES,
         y: yValores,
@@ -630,7 +631,6 @@
 
       const maxVal = Math.max(...yValores, 1);
 
-      // Rótulos removidos das barras estreitas e movidos para o hover
       const trace = {
         x: xAnos,
         y: yValores,
@@ -771,7 +771,6 @@
           ? `Repasses por Estado / UF — ${state.regiao} (${state.ano})`
           : `Repasses por Estado / UF (${state.ano})`;
 
-      // Rótulos ocultos acima das barras para evitar colisão entre 27 UFs; leitura via hover
       const trace = {
         x: xUFs,
         y: yValores,
